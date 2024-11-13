@@ -19,6 +19,7 @@ class PostFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(),
+            'reading_time' => random_int(1, 10),
             'slug' => Str::slug('title'),
             'summary' => $this->faker->paragraph(),
             'body' => $this->faker->paragraph(),
