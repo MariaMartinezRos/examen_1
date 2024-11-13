@@ -52,4 +52,10 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Post::class);
     }
+
+    //. Un usuario solo podrá tener un rol
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
 }

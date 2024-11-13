@@ -25,4 +25,10 @@ class Role extends Model
 
         return $newRole;
     }
+
+    //un rol pueden tenerlo muchos usuarios
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }
