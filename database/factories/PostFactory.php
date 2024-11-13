@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
@@ -18,9 +19,10 @@ class PostFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(),
-            'slug' => 'title',
+            'slug' => Str::slug('title'),
+            'summary' => $this->faker->paragraph(),
             'body' => $this->faker->paragraph(),
-            'summary' => 'body',
+            'status' =>$this->faker->randomElement(['published', 'draft', 'archived', 'pending']),
             'published_at' => random_int(0, 2)
                 ? $this->faker->dateTimeBetween('-1 month', '+1 months')
                 : null,
