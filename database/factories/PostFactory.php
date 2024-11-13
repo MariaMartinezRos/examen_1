@@ -17,10 +17,12 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
+        $title = $this->faker->sentence();
+
         return [
-            'title' => $this->faker->sentence(),
+            'title' => $title,
             'reading_time' => random_int(1, 10),    //
-            'slug' => Str::slug('title'),   //
+            'slug' => Str::slug($title),   //
             'summary' => $this->faker->paragraph(), //
             'body' => $this->faker->paragraph(),
             'status' =>$this->faker->randomElement(['published', 'draft', 'archived', 'pending']), //
